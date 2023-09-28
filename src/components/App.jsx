@@ -17,9 +17,7 @@ const defaultContacts = [
 export const App = () => {
   const startState = JSON.parse(localStorage.getItem(LS_KEY));
 
-  const [contacts, setContacts] = useState(
-    () => [...startState] ?? defaultContacts
-  );
+  const [contacts, setContacts] = useState(() => defaultContacts ?? [...startState]);
   const [filter, setFilter] = useState('');
 
   useEffect(() => {
